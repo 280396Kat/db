@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0002_ddl_create_bookings_table" author="Katya K.">
+        <createTable schemaName="public" tableName="bookings" remarks="Бронирование">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="bookings_pkey" nullable="false"/>
+            </column>
+            <column name="book_ref" type="varchar" remarks="             "/>
+            <column name="book_data" type="date" remarks="Дата бронирования"/>
+            <column name="total_amount" type="numeric" remarks="Общее количество"/>
+
+        </createTable>
+        <rollback>
+            <dropTable tableName="bookings"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

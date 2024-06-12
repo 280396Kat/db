@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0006_ddl_create_aircrafts_table" author="Katya K.">
+        <createTable schemaName="public" tableName="aircrafts" remarks="Самолеты">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="aircrafts_pkey" nullable="false"/>
+            </column>
+            <column name="aircraft_code" type="varchar" remarks="            "/>
+            <column name="model" type="varchar" remarks="Модель самолета"/>
+            <column name="range" type="varchar" remarks="           "/>
+
+        </createTable>
+        <rollback>
+            <dropTable tableName="aircrafts"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

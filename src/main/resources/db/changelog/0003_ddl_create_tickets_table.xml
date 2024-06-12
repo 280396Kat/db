@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0003_ddl_create_tickets_table" author="Katya K.">
+        <createTable schemaName="public" tableName="tickets" remarks="Билеты">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="tickets_pkey" nullable="false"/>
+            </column>
+            <column name="ticket_no" type="varchar" remarks="            "/>
+            <column name="book_ref" type="varchar" remarks="             "/>
+            <column name="passenger_id" type="varchar" remarks="       "/>
+            <column name="passenger_name" type="varchar" remarks="Имя пассажира"/>
+            <column name="contact_data" type="varchar" remarks="Контактные данные"/>
+
+        </createTable>
+        <rollback>
+            <dropTable tableName="tickets"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

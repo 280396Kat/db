@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0007_ddl_seats_table" author="Katya K.">
+        <createTable schemaName="public" tableName="seats" remarks="Места">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="seats_pkey" nullable="false"/>
+            </column>
+            <column name="aircraft_code" type="varchar" remarks="            "/>
+            <column name="seat_no" type="varchar" remarks="          "/>
+            <column name="fare_conditions" type="varchar" remarks="Условия оплаты перелета"/>
+
+        </createTable>
+        <rollback>
+            <dropTable tableName="seats"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

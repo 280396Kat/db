@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0001_ddl_create_airports_table" author="Katya K.">
+        <createTable schemaName="public" tableName="airports" remarks="Аэропорты">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="airports_pkey" nullable="false"/>
+            </column>
+            <column name="airport_code" type="varchar" remarks="              "/>
+            <column name="airport_name" type="varchar" remarks="Название аэропорта"/>
+            <column name="city" type="varchar" remarks="Город"/>
+            <column name="longitude" type="varchar" remarks="Долгота"/>
+            <column name="latitude" type="varchar" remarks="Широта"/>
+            <column name="timezone" type="varchar" remarks="Часовой пояс"/>
+
+        </createTable>
+        <rollback>
+            <dropTable tableName="airports"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
