@@ -12,7 +12,7 @@
             <column name="flight_id" type="bigint">
                 <constraints primaryKey="true" primaryKeyName="flights_pkey" nullable="false"/>
             </column>
-            <column name="fare_conditions" type="varchar" remarks="Условия оплаты проезда"/>
+            <column name="fare_conditions" type="varchar" remarks="Условия оплаты перелета"/>
             <column name="amount" type="numeric" remarks="Цена перелета"/>
 
         </createTable>
@@ -20,8 +20,8 @@
         baseColumnNames="ticket_no"
         baseTableName="ticket_flights"
         baseTableSchemaName="public"
-        constraintName="ticket_no_fk_id"
-        referencedColumnNames="ticket_no"
+        constraintName="ticket_id_fk_id"
+        referencedColumnNames="ticket_id"
         referencedTableName="tickets"
         referencedTableSchemaName="public"/>
         <addForeignKeyConstraint

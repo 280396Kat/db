@@ -6,15 +6,15 @@
 
     <changeSet id="0001_ddl_create_airports_table" author="Katya K.">
         <createTable schemaName="public" tableName="airports" remarks="Аэропорты">
-            <column name="id" type="bigserial" autoIncrement="true">
+            <column name="airport_id" type="bigint" >
                 <constraints primaryKey="true" primaryKeyName="airports_pkey" nullable="false"/>
             </column>
-            <column name="airport_code" type="varchar" remarks="              "/>
+            <column name="airport_code" type="varchar" remarks="Код аэропорта"/>
             <column name="airport_name" type="varchar" remarks="Название аэропорта"/>
             <column name="city" type="varchar" remarks="Город"/>
-            <column name="longitude" type="varchar" remarks="Долгота"/>
-            <column name="latitude" type="varchar" remarks="Широта"/>
-            <column name="timezone" type="varchar" remarks="Часовой пояс"/>
+            <column name="longitude" type="varchar" remarks="Координаты аэропорта: долгота"/>
+            <column name="latitude" type="varchar" remarks="Координаты аэропорта: широта"/>
+            <column name="timezone" type="varchar" remarks="Временная зона аэропорта"/>
 
         </createTable>
         <rollback>

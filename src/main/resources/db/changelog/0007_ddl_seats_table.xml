@@ -6,12 +6,12 @@
 
     <changeSet id="0007_ddl_seats_table" author="Katya K.">
         <createTable schemaName="public" tableName="seats" remarks="Места">
-            <column name="id" type="bigserial" autoIncrement="true">
+            <column name="seats_id" type="bigint">
                 <constraints primaryKey="true" primaryKeyName="seats_pkey" nullable="false"/>
             </column>
-            <column name="aircraft_code" type="varchar" remarks="            "/>
-            <column name="seat_no" type="varchar" remarks="          "/>
-            <column name="fare_conditions" type="varchar" remarks="Условия оплаты перелета"/>
+            <column name="aircraft_code" type="varchar" remarks="Код самолета"/>
+            <column name="seat_no" type="varchar" remarks="Номер места"/>
+            <column name="fare_conditions" type="varchar" remarks="Класс обслуживания"/>
 
         </createTable>
         <rollback>

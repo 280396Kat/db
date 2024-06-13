@@ -6,14 +6,22 @@
 
     <changeSet id="0006_ddl_create_aircrafts_table" author="Katya K.">
         <createTable schemaName="public" tableName="aircrafts" remarks="Самолеты">
-            <column name="id" type="bigserial" autoIncrement="true">
+            <column name="aircrafts_id" type="bigint" >
                 <constraints primaryKey="true" primaryKeyName="aircrafts_pkey" nullable="false"/>
             </column>
-            <column name="aircraft_code" type="varchar" remarks="            "/>
+            <column name="aircraft_code" type="varchar" remarks="Код самолета"/>
             <column name="model" type="varchar" remarks="Модель самолета"/>
-            <column name="range" type="varchar" remarks="           "/>
+            <column name="range" type="varchar" remarks="Максимальная дальность полета, км"/>
 
         </createTable>
+        <addForeignKeyConstraint
+                baseColumnNames="aircrafts_id"
+                baseTableName="aircrafts"
+                baseTableSchemaName="public"
+                constraintName="aircrafts_id_pk_id"
+                referencedColumnNames="seats_id"
+                referencedTableName="seats"
+                referencedTableSchemaName="public"/>
         <rollback>
             <dropTable tableName="aircrafts"/>
         </rollback>

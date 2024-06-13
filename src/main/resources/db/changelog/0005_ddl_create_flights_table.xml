@@ -6,19 +6,35 @@
 
     <changeSet id="0005_ddl_create_flights_table" author="Katya K.">
         <createTable schemaName="public" tableName="flights" remarks="Рейсы">
-            <column name="id" type="bigserial" autoIncrement="true">
+            <column name="flights_id" type="bigint">
                 <constraints primaryKey="true" primaryKeyName="flights_pkey" nullable="false"/>
             </column>
-            <column name="flight_no" type="bigint" remarks="Идентификатор самолета"/>
+            <column name="flight_no" type="bigint" remarks="Номер рейса"/>
             <column name="scheduled_departure" type="timestamp" remarks="Время вылета"/>
             <column name="scheduled_arrival" type="timestamp" remarks="Время прилета"/>
             <column name="departure_airport" type="varchar" remarks="Аэропорт отправления"/>
             <column name="arrival_airport" type="varchar" remarks="Аэропорт прибытия"/>
             <column name="status" type="varchar" remarks="Статус рейса"/>
-            <column name="aircraft_code" type="varchar" remarks="Код воздушного судна"/>
-            <column name="actual_departure" type="timestamp" remarks="Фактическое время"/>
+            <column name="aircraft_code" type="varchar" remarks="Код самолета"/>
+            <column name="actual_departure" type="timestamp" remarks="Фактическое время вылета"/>
 
         </createTable>
+        <addForeignKeyConstraint
+                baseColumnNames="flights_id"
+                baseTableName="flights"
+                baseTableSchemaName="public"
+                constraintName="flights_id_pk_id"
+                referencedColumnNames="airport_id"
+                referencedTableName="airports"
+                referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint
+                baseColumnNames="flight_id"
+                baseTableName="flights"
+                baseTableSchemaName="public"
+                constraintName="flight_id_pk_id"
+                referencedColumnNames="aircrafts_id"
+                referencedTableName="aircrafts"
+                referencedTableSchemaName="public"/>
         <rollback>
             <dropTable tableName="flights"/>
         </rollback>

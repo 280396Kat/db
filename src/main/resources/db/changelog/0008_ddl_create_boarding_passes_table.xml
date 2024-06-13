@@ -9,8 +9,8 @@
             <column name="id" type="bigserial" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="boarding_passes_pkey" nullable="false"/>
             </column>
-            <column name="ticket_no" type="varchar" remarks="        "/>
-            <column name="flight_id" type="varchar" remarks="       "/>
+            <column name="ticket_no" type="varchar" remarks="Номер билета"/>
+            <column name="flight_id" type="varchar" remarks="Идентификатор рейса"/>
             <column name="boarding_no" type="varchar" remarks="Номер посадочного билета"/>
             <column name="seat_no" type="varchar" remarks="Номер места"/>
 

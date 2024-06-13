@@ -6,16 +6,22 @@
 
     <changeSet id="0003_ddl_create_tickets_table" author="Katya K.">
         <createTable schemaName="public" tableName="tickets" remarks="Билеты">
-            <column name="id" type="bigserial" autoIncrement="true">
+            <column name="ticket_id" type="bigint">
                 <constraints primaryKey="true" primaryKeyName="tickets_pkey" nullable="false"/>
             </column>
-            <column name="ticket_no" type="varchar" remarks="            "/>
-            <column name="book_ref" type="varchar" remarks="             "/>
-            <column name="passenger_id" type="varchar" remarks="       "/>
+            <column name="passenger_id" type="bigint" remarks="Номер пассажипр"/>
             <column name="passenger_name" type="varchar" remarks="Имя пассажира"/>
             <column name="contact_data" type="varchar" remarks="Контактные данные"/>
 
-        </createTable>
+    </createTable>
+    <addForeignKeyConstraint
+            baseColumnNames="ticket_id"
+            baseTableName="tickets"
+            baseTableSchemaName="public"
+            constraintName="ticket_id_pk_id"
+            referencedColumnNames="boom_id"
+            referencedTableName="bookings"
+            referencedTableSchemaName="public"/>
         <rollback>
             <dropTable tableName="tickets"/>
         </rollback>
