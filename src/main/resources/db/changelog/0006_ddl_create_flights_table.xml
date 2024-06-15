@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="0005_ddl_create_flights_table" author="Katya K.">
+    <changeSet id="0006_ddl_create_flights_table" author="Katya K.">
         <createTable schemaName="public" tableName="flights" remarks="Рейсы">
             <column name="flights_id" type="bigint">
                 <constraints primaryKey="true" primaryKeyName="flights_pkey" nullable="false"/>
@@ -17,22 +16,24 @@
             <column name="status" type="varchar" remarks="Статус рейса"/>
             <column name="aircraft_code" type="varchar" remarks="Код самолета"/>
             <column name="actual_departure" type="timestamp" remarks="Фактическое время вылета"/>
+            <column name="flight_airport_id" type="bigint" remarks="Ключ аэропорт"/>
+            <column name="flight_aircraft_id" type="bigint" remarks="Ключ самолеты"/>
 
         </createTable>
         <addForeignKeyConstraint
-                baseColumnNames="flights_id"
+                baseColumnNames="flight_airport_id"
                 baseTableName="flights"
                 baseTableSchemaName="public"
-                constraintName="flights_id_pk_id"
+                constraintName="flights_id_fk"
                 referencedColumnNames="airport_id"
                 referencedTableName="airports"
                 referencedTableSchemaName="public"/>
         <addForeignKeyConstraint
-                baseColumnNames="flight_id"
+                baseColumnNames="flight_aircraft_id"
                 baseTableName="flights"
                 baseTableSchemaName="public"
-                constraintName="flight_id_pk_id"
-                referencedColumnNames="aircrafts_id"
+                constraintName="flights_id_fk"
+                referencedColumnNames="aircraft_code"
                 referencedTableName="aircrafts"
                 referencedTableSchemaName="public"/>
         <rollback>

@@ -6,13 +6,13 @@ databaseChangeLog:
   - include:
       file: db/changelog/0003_ddl_create_tickets_table.xml
   - include:
-      file: db/changelog/0004_ddl_create_ticket_flights_table.xml
+      file: db/changelog/0004_ddl_seats_table.xml
   - include:
-      file: db/changelog/0005_ddl_create_flights_table.xml
+      file: db/changelog/0005_ddl_create_aircrafts_table.xml
   - include:
-      file: db/changelog/0006_ddl_create_aircrafts_table.xml
+      file: db/changelog/0006_ddl_create_flights_table.xml
   - include:
-      file: db/changelog/0007_ddl_seats_table.xml
+      file: db/changelog/0007_ddl_create_tickets_flights_table.xml
   - include:
       file: db/changelog/0008_ddl_create_boarding_passes_table.xml
 

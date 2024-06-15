@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="0007_ddl_seats_table" author="Katya K.">
+    <changeSet id="0004_ddl_seats_table" author="Katya K.">
         <createTable schemaName="public" tableName="seats" remarks="Места">
             <column name="seats_id" type="bigint">
                 <constraints primaryKey="true" primaryKeyName="seats_pkey" nullable="false"/>

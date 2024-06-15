@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet id="0003_ddl_create_tickets_table" author="Katya K.">
         <createTable schemaName="public" tableName="tickets" remarks="Билеты">
@@ -19,7 +18,7 @@
             baseTableName="tickets"
             baseTableSchemaName="public"
             constraintName="ticket_id_pk_id"
-            referencedColumnNames="boom_id"
+            referencedColumnNames="book_id"
             referencedTableName="bookings"
             referencedTableSchemaName="public"/>
         <rollback>

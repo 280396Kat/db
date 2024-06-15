@@ -1,39 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="0004_ddl_create_ticket_flights_table" author="Katya K.">
+    <changeSet id="0007_ddl_create_ticket_flights_table" author="Katya K.">
         <createTable schemaName="public" tableName="tickets_flights" remarks="Перелеты">
             <column name="ticket_no" type="bigint">
-                <constraints primaryKey="true" primaryKeyName="ticket_pkey" nullable="false"/>
             </column>
-            <column name="flight_id" type="bigint">
-                <constraints primaryKey="true" primaryKeyName="flights_pkey" nullable="false"/>
+            <column name="flights_id" type="bigint">
             </column>
             <column name="fare_conditions" type="varchar" remarks="Условия оплаты перелета"/>
             <column name="amount" type="numeric" remarks="Цена перелета"/>
 
+
         </createTable>
         <addForeignKeyConstraint
         baseColumnNames="ticket_no"
-        baseTableName="ticket_flights"
+        baseTableName="tickets_flights"
         baseTableSchemaName="public"
-        constraintName="ticket_id_fk_id"
-        referencedColumnNames="ticket_id"
+        constraintName= "tickets_flights_ticket_no_fk"
+        referencedColumnNames="ticket_no"
         referencedTableName="tickets"
         referencedTableSchemaName="public"/>
         <addForeignKeyConstraint
-        baseColumnNames="flight_id"
-        baseTableName="ticket_flights"
+        baseColumnNames="flights_id"
+        baseTableName="tickets_flights"
         baseTableSchemaName="public"
-        constraintName="flight_id_fk_id"
-        referencedColumnNames="flight_id"
+        constraintName="tickets_flights_flights_id_fk"
+        referencedColumnNames="flights_id"
         referencedTableName="flights"
         referencedTableSchemaName="public"/>
         <rollback>
-            <dropTable tableName="ticket_flights"/>
+            <dropTable tableName="tickets_flights"/>
         </rollback>
     </changeSet>
 </databaseChangeLog>
